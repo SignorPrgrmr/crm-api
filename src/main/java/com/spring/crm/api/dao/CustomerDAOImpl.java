@@ -3,7 +3,6 @@ package com.spring.crm.api.dao;
 import com.spring.crm.api.entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +21,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public List<Customer> getCustomers() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select Customer from Customer", Customer.class).getResultList();
+        return session.createQuery("select c from Customer c", Customer.class).getResultList();
     }
 
     @Override
